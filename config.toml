@@ -1,0 +1,75 @@
+[server]
+# 服务器监听配置
+host = "0.0.0.0"
+port = 3000
+debug = false
+
+[domains]
+# 域名配置
+api = "https://aa.ylqkf.com"     # API后端地址
+admin = "https://bb.ylqkf.com"   # 客服管理端地址
+client = "https://cc.ylqkf.com"  # 客户端地址
+
+[database]
+# 数据库配置
+type = "postgresql"
+host = "localhost"
+port = 5432
+username = "kefu"
+password = "gaoce2600"
+database = "kefu"
+connection_limit = 10
+timeout_seconds = 30
+
+[redis]
+# Redis缓存配置
+host = "localhost"
+port = 6379
+password = ""
+database = 0
+connection_timeout = 5
+pool_size = 10
+prefix = "cs:"
+# 内存管理配置
+cleanup_on_disconnect = true    # 客户断开连接时清理数据
+memory_check_interval = 300     # 内存检查间隔(秒)
+high_memory_threshold = 75      # 高内存阈值(%)
+emergency_cleanup_enabled = true # 是否启用紧急清理
+
+[jwt]
+# JWT认证配置
+secret = "ylqkf_secret_key_for_jwt_auth_2025"
+token_expiry_hours = 24
+refresh_token_expiry_days = 30
+issuer = "customer_service_system"
+
+[admin]
+# 默认管理员账号
+username = "admin"
+password = "admin123"
+display_name = "系统管理员"
+
+[agent]
+# 默认客服账号
+username = "88888"
+password = "123456"
+display_name = "客服88888"
+
+[websocket]
+# WebSocket配置
+ping_interval_seconds = 30
+connection_timeout_seconds = 60
+max_message_size_kb = 512
+
+[storage]
+# 文件存储配置
+upload_dir = "./uploads"
+max_file_size_mb = 10
+allowed_extensions = ["jpg", "jpeg", "png", "gif", "pdf", "txt", "doc", "docx"]
+
+[logging]
+# 日志配置
+level = "info"
+file = "/var/log/customer_service.log"
+max_file_size_mb = 100
+max_files = 5 
